@@ -2,14 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Container, Menu, Search } from './styles';
-import {
-  MdMenu,
-  MdWhatshot,
-  MdHome,
-  MdTimelapse,
-  MdBook,
-  MdSearch
-} from 'react-icons/md';
+import { MdMenu, MdHome, MdTimelapse, MdBook, MdSearch } from 'react-icons/md';
+import NatsuKanji from '../../assets/images/natsu_kanji.svg';
 
 function Header() {
   const [query, setQuery] = useState('');
@@ -44,7 +38,7 @@ function Header() {
   return (
     <Container>
       <div className='brand'>
-        <MdWhatshot size='16pt' />
+        <img src={NatsuKanji} alt='Kanji japonês para verão.' height='20px' />
         <Link to='/'>Natsu</Link>
       </div>
 
