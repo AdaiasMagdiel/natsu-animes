@@ -19,20 +19,8 @@ function Header() {
     setMenuVisibility(false);
   }
   function handleSubmit(e) {
-    if (e.keyCode === 13) {
-      if (query !== '') {
-        window.location.assign(`/busca/${query}`);
-      }
-    } else if (e.keyCode === 8) {
-      setQuery(
-        query
-          .split('')
-          .slice(0, -1)
-          .join('')
-      );
-    } else {
-      setQuery(query + e.key);
-    }
+    e.preventDefault();
+    window.location.assign(`/busca/${query}`);
   }
 
   return (
@@ -64,11 +52,13 @@ function Header() {
         </div>
       </Menu>
       <Search visibility={searchVisibility.toString()}>
-        <input
-          type='text'
-          placeholder='Pesquisa...'
-          onKeyDown={e => handleSubmit(e)}
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            type='text'
+            placeholder='Pesquisa...'
+            onChange={e => setQuery(e.target.value)}
+          />
+        </form>
       </Search>
     </Container>
   );

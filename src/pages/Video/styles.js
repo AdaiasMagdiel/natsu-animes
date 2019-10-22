@@ -26,8 +26,7 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       padding: 30px 18px;
-      border-bottom: 1px solid #ffffff0d;
-      --imagem: ${props => props.imagem};
+      border-bottom: var(--border);
 
       a {
         font-weight: bold;

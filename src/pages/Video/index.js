@@ -85,7 +85,7 @@ function Video() {
   return (
     video.episodio > 0 && (
       <Container>
-        <div classNameName='player'>
+        <div className='player'>
           <ReactPlayer
             url={video.video_url}
             playing={false}
@@ -95,8 +95,8 @@ function Video() {
           />
         </div>
 
-        <div classNameName='episodios'>
-          <div classNameName='anime'>
+        <div className='episodios'>
+          <div className='anime'>
             <Cover to={`/${tipo}/${nome}`} image={anime.imagem} />
             <Link to={`/${tipo}/${nome}`}>{anime.nome}</Link>
           </div>

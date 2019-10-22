@@ -3,6 +3,7 @@
 :root {
   --bg-color: #0b0a0d;
   --header-color: #19181f;
+  --border: 1px solid #ffffff0d;
 }
 
 * {
