@@ -2,7 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Container, Menu, Search } from './styles';
-import { MdMenu, MdHome, MdTimelapse, MdBook, MdSearch } from 'react-icons/md';
+import {
+  MdMenu,
+  MdHome,
+  MdTimelapse,
+  MdBook,
+  MdSearch,
+  MdClear,
+  MdGraphicEq
+} from 'react-icons/md';
 import NatsuKanji from '../../assets/images/natsu_kanji.svg';
 
 function Header() {
@@ -10,6 +18,10 @@ function Header() {
   const [menuVisibility, setMenuVisibility] = useState(false);
   const [searchVisibility, setSearchVisibility] = useState(false);
 
+  function closeAll() {
+    setMenuVisibility(false);
+    setSearchVisibility(false);
+  }
   function toggleMenu() {
     setMenuVisibility(!menuVisibility);
     setSearchVisibility(false);
@@ -20,6 +32,7 @@ function Header() {
   }
   function handleSubmit(e) {
     e.preventDefault();
+    closeAll();
     window.location.assign(`/busca/${query}`);
   }
 
@@ -38,19 +51,33 @@ function Header() {
       <Menu visibility={menuVisibility.toString()}>
         <div className='link'>
           <MdHome size='14pt' />
-          <Link to='/'>Início</Link>
+          <Link to='/' onClick={closeAll}>
+            Início
+          </Link>
         </div>
 
         <div className='link'>
           <MdTimelapse size='14pt' />
-          <Link to='/'>Lançamentos</Link>
+          <Link to='/lancamentos' onClick={closeAll}>
+            Lançamentos
+          </Link>
         </div>
 
         <div className='link'>
           <MdBook size='14pt' />
-          <Link to='/'>Hoje</Link>
+          <Link to='/hoje' onClick={closeAll}>
+            Hoje
+          </Link>
+        </div>
+
+        <div className='link'>
+          <MdGraphicEq size='14pt' />
+          <Link to='/random' onClick={closeAll}>
+            Aleatórios
+          </Link>
         </div>
       </Menu>
+
       <Search visibility={searchVisibility.toString()}>
         <form onSubmit={handleSubmit}>
           <input
@@ -59,6 +86,7 @@ function Header() {
             onChange={e => setQuery(e.target.value)}
           />
         </form>
+        <MdClear size='30px' onClick={() => toggleSearchBar()} />
       </Search>
     </Container>
   );

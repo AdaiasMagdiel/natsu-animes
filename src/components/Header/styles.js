@@ -62,22 +62,26 @@ export const Search = styled.div`
 
   background-color: var(--header-color);
 
-  width: 60%;
+  width: 100%;
+  height: 80px;
 
   position: absolute;
-  top: 90px;
-  right: 20%;
-  left: 20%;
+  top: 0;
+  right: 0;
 
-  input::-webkit-input-placeholder,
-  input::-moz-placeholder,
-  input::placeholder {
+  form {
+    flex: 1;
+  }
+
+  form input::-webkit-input-placeholder,
+  form input::-moz-placeholder,
+  form input::placeholder {
     color: #fff;
     font-size: 12pt;
     opacity: 1;
   }
 
-  input {
+  form input {
     background-color: var(--header-color);
     border: none;
     color: #fff;
@@ -87,9 +91,15 @@ export const Search = styled.div`
     height: 50px;
   }
 
-  @media screen and (max-width: 559px) {
-    width: 80%;
-    right: 10%;
-    left: 10%;
+  svg {
+    position: relative;
+    right: 15%;
+  }
+
+  @media screen and (max-width: 600) {
+    svg {
+      position: relative;
+      right: 20px;
+    }
   }
 `;

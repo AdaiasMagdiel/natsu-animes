@@ -24,6 +24,7 @@ function Video() {
     if (data.episodio === 1 || data.episodio === 2) {
       _episodios = makeArray(1, data.episodios).map(ep => (
         <EpisodeLink
+          key={ep}
           to={`/episodio/${tipo}/${nome}/${ep}`}
           mark={ep === data.episodio ? true : false}
         >
@@ -33,16 +34,18 @@ function Video() {
     } else if (data.episodio >= 3 && data.episodio <= data.episodios - 2) {
       _episodios = makeArray(data.episodio - 2, data.episodio + 2).map(ep => (
         <EpisodeLink
+          key={ep}
           to={`/episodio/${tipo}/${nome}/${ep}`}
           mark={ep === data.episodio ? true : false}
         >
           Episódio {ep}
         </EpisodeLink>
       ));
-    } else if (data.episodio === data.episodios) {
+    } else if (data.episodio === data.episodios - 1) {
       if (data.episodio < 5) {
         _episodios = makeArray(1, data.episodio).map(ep => (
           <EpisodeLink
+            key={ep}
             to={`/episodio/${tipo}/${nome}/${ep}`}
             mark={ep === data.episodio ? true : false}
           >
@@ -52,6 +55,29 @@ function Video() {
       } else {
         _episodios = makeArray(data.episodios - 4, data.episodios).map(ep => (
           <EpisodeLink
+            key={ep}
+            to={`/episodio/${tipo}/${nome}/${ep}`}
+            mark={ep === data.episodio ? true : false}
+          >
+            Episódio {ep}
+          </EpisodeLink>
+        ));
+      }
+    } else if (data.episodio === data.episodios) {
+      if (data.episodio < 5) {
+        _episodios = makeArray(1, data.episodio).map(ep => (
+          <EpisodeLink
+            key={ep}
+            to={`/episodio/${tipo}/${nome}/${ep}`}
+            mark={ep === data.episodio ? true : false}
+          >
+            Episódio {ep}
+          </EpisodeLink>
+        ));
+      } else {
+        _episodios = makeArray(data.episodios - 4, data.episodios).map(ep => (
+          <EpisodeLink
+            key={ep}
             to={`/episodio/${tipo}/${nome}/${ep}`}
             mark={ep === data.episodio ? true : false}
           >
