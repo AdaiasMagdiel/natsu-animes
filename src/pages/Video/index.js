@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+
 import ReactPlayer from 'react-player';
 
 import api from '../../services/api';
@@ -111,18 +112,12 @@ function Video() {
   return (
     video.episodio > 0 && (
       <Container>
-        <div className='player'>
-          <ReactPlayer
-            url={video.video_url}
-            playing={false}
-            controls
-            width='100%'
-            height='100%'
-          />
+        <div className="player">
+          <ReactPlayer url={video.video_url} playing={false} controls width="100%" height="100%" />
         </div>
 
-        <div className='episodios'>
-          <div className='anime'>
+        <div className="episodios">
+          <div className="anime">
             <Cover to={`/${tipo}/${nome}`} image={anime.imagem} />
             <Link to={`/${tipo}/${nome}`}>{anime.nome}</Link>
           </div>

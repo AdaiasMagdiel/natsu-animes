@@ -9,6 +9,7 @@
     "path": "^0.12.7",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-full-screen": "^0.2.4",
     "react-icons": "^3.7.0",
     "react-player": "^1.13.0",
     "react-router-dom": "^5.1.2",
