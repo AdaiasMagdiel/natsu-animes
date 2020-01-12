@@ -113,7 +113,7 @@ function Video() {
     video.episodio > 0 && (
       <Container>
         <div className="player">
-          <ReactPlayer url={video.video_url} playing={false} controls width="100%" height="100%" />
+          <iframe src={video.video_url} title={video.video_url} frameborder="0"></iframe>
         </div>
 
         <div className="episodios">
@@ -127,5 +127,7 @@ function Video() {
     )
   );
 }
+
+// <ReactPlayer url={video.video_url} playing={false} controls width="100%" height="100%" />
 
 export default Video;

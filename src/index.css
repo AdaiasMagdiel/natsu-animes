@@ -31,3 +31,9 @@ a {
   color: #fff;
   text-decoration: none;
 }
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 100%;
+}
