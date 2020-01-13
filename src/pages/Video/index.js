@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
-import ReactPlayer from 'react-player';
+// import ReactPlayer from 'react-player';
+// <ReactPlayer url={video.video_url} playing={false} controls width="100%" height="100%" />
 
 import api from '../../services/api';
 
@@ -127,7 +128,5 @@ function Video() {
     )
   );
 }
-
-// <ReactPlayer url={video.video_url} playing={false} controls width="100%" height="100%" />
 
 export default Video;
