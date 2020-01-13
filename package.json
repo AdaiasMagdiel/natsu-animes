@@ -1,0 +1,48 @@
+{
+  "name": "natsu",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://adaiasmagdiel.github.io/",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
+    "gh-pages": "^2.2.0",
+    "path": "^0.12.7",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-full-screen": "^0.2.4",
+    "react-icons": "^3.7.0",
+    "react-player": "^1.13.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "styled-components": "^4.4.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "start-prod": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": "10.16.0"
+  }
+}
