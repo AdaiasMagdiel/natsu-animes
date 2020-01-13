@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container } from './styles';
 
 import Card from '../../components/Card';
+import Loading from '../../components/Loading';
 
 import api from '../../services/api';
 
@@ -22,7 +23,7 @@ function Main() {
 
   return (
     <Container>
-      {episodios.length > 0 &&
+      {episodios.length > 0 ? (
         episodios.map(episodio => (
           <Card
             key={`${episodio.slug}/${episodio.episodio}`}
@@ -32,7 +33,10 @@ function Main() {
             label={`${episodio.nome} | ${episodio.episodio}`}
             url={`episodio/${episodio.slug}/${episodio.episodio}`}
           />
-        ))}
+        ))
+      ) : (
+        <Loading />
+      )}
     </Container>
   );
 }

@@ -5,6 +5,7 @@ import { Container } from './styles';
 import api from '../../services/api';
 import Card from '../../components/Card';
 import Error from '../../components/Error';
+import Loading from '../../components/Loading';
 
 function Search() {
   const [code, setCode] = useState(200);
@@ -31,20 +32,23 @@ function Search() {
   return (
     <Container>
       {code === 200 ? (
-        resultados.length > 0 &&
-        resultados.map(resultado => (
-          <Card
-            key={`${resultado.slug}`}
-            data={resultado}
-            width={280}
-            height={400}
-            label={`${resultado.nome}`}
-            url={`${resultado.slug}`}
-          />
-        ))
+        resultados.length > 0 ? (
+          resultados.map(resultado => (
+            <Card
+              key={`${resultado.slug}`}
+              data={resultado}
+              width={280}
+              height={400}
+              label={`${resultado.nome}`}
+              url={`${resultado.slug}`}
+            />
+          ))
+        ) : (
+          <Loading />
+        )
       ) : (
         <Error
-          msg='Ocorreu um erro na sua pesquisa!'
+          msg="Ocorreu um erro na sua pesquisa!"
           info={`Nenhum resutado para "${query}", tente novamente com outro termo.`}
         />
       )}

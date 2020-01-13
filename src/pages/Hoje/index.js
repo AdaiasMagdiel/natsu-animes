@@ -3,6 +3,7 @@ import { Container } from './styles';
 
 import api from '../../services/api';
 import Card from '../../components/Card';
+import Loading from '../../components/Loading';
 
 function Hoje() {
   const [resultados, setResultados] = useState([]);
@@ -10,15 +11,7 @@ function Hoje() {
   useEffect(() => {
     async function loadResultados() {
       let day = new Date();
-      let x = [
-        'domingo',
-        'segunda',
-        'terca',
-        'quarta',
-        'quinta',
-        'sexta',
-        'sabado'
-      ];
+      let x = ['domingo', 'segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado'];
 
       let response = await api.get(`/semana/${x[day.getDay()]}`);
       setResultados(response.data);
@@ -32,7 +25,7 @@ function Hoje() {
 
   return (
     <Container>
-      {resultados.length > 0 &&
+      {resultados.length > 0 ? (
         resultados.map(resultado => (
           <Card
             key={resultado.slug}
@@ -42,7 +35,10 @@ function Hoje() {
             label={resultado.nome}
             url={resultado.slug}
           />
-        ))}
+        ))
+      ) : (
+        <Loading />
+      )}
     </Container>
   );
 }

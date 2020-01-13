@@ -3,6 +3,7 @@ import { Container } from './styles';
 
 import api from '../../services/api';
 import Card from '../../components/Card';
+import Loading from '../../components/Loading';
 
 function Lancamentos() {
   const [resultados, setResultados] = useState([]);
@@ -21,7 +22,7 @@ function Lancamentos() {
 
   return (
     <Container>
-      {resultados.length > 0 &&
+      {resultados.length > 0 ? (
         resultados.map(resultado => (
           <Card
             key={resultado.slug}
@@ -31,7 +32,10 @@ function Lancamentos() {
             label={resultado.nome}
             url={resultado.slug}
           />
-        ))}
+        ))
+      ) : (
+        <Loading />
+      )}
     </Container>
   );
 }
